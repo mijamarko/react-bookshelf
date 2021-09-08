@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navigation from './Navigation/Navigation';
+import LoginForm from './LoginForm'
+import DropdownMenu from './Navigation/DropdownMenu';
+import AppContent from './AppContent'
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation loggedIn={loggedIn} isOpen={isOpen} setIsOpen={setIsOpen}/>
+      { isOpen ? <DropdownMenu  setLoggedIn={setLoggedIn} setIsOpen={setIsOpen} /> : <></>}
+      { !loggedIn 
+      ? <LoginForm setLoggedIn={setLoggedIn}/> 
+      : <AppContent isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 }
