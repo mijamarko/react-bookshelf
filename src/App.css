@@ -155,16 +155,19 @@ form h3 {
 
 .content-wrapper {
   display: grid;
-  grid-template-columns: 250px auto auto;
+  grid-template-columns: 225px auto;
   height: 100vh;
 }
 
 /* SIDEBAR */
 
 .sidebar {
+  overflow: auto;
   height: 100%;
   background-color: var(--sidebar-color);
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction:column;
 }
 
 .sidebar-section {
@@ -228,4 +231,125 @@ form h3 {
   outline: none;
   font-size: 1rem;
   font-style: italic;
+}
+
+.create-shelf-component {
+  margin: 1rem 0 0 1rem;
+  padding: 5px 5px 5px 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.create-shelf-component > span {
+  cursor: pointer;
+}
+
+.create-shelf-input {
+  font-family: 'Montserrat', sans-serif;
+  width: 60%;
+  padding: 0;
+  background-color: unset;
+  border: none;
+  box-shadow: 0 2px 0 0 var(--dark-font-color);
+  outline: none;
+  font-size: 1rem;
+}
+
+.create-shelf-icon {
+  margin-left: 1.5rem;
+  height: 17px;
+  width: 17px;
+  padding: 0 3px;
+}
+
+.create-shelf-icon:hover {
+  fill:rgba(238, 67, 89, 0.8);
+  cursor:pointer;
+}
+
+.content-container {
+  display: grid;
+  grid-template-rows: 35px auto;
+}
+
+.shelf-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1rem;
+  height: 35px;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.shelf-search > input {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.loading {
+  margin: auto;
+  border: 20px solid var(--sidebar-color);
+  border-radius: 50%;
+  border-top: 20px solid var(--nav-color);
+  width: 200px;
+  height: 200px;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.card-output {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+  padding: 1rem;
+}
+
+.book-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 280px;
+  height: 200px;
+  background-color: var(--dark-font-color-opaque);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.book-card:hover{
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.book-info {
+  overflow: auto;
+}
+
+.book-rating {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.book-card-options {
+  margin-left: auto;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.book-card-options:hover{
+  color: var(--nav-color)
 }
