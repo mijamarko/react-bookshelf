@@ -47,6 +47,8 @@ const AppContent = ({ isOpen, setIsOpen }) => {
 
   const [shelfData, setShelfData] = useState(null);
 
+  const [searchValue, setSearchValue] = useState('');
+
   useEffect((() => {
     fetch(`https://openlibrary.org/subjects/science_fiction.json`)
     .then(response => response.json())
@@ -71,8 +73,8 @@ const AppContent = ({ isOpen, setIsOpen }) => {
     <div className="content-wrapper" ref={ref} onClick={() => checkIfClicked()} >
       <Sidebar stateData={states}/>
       <div className="content-container">
-        <ShelfSearch selectedShelfIndex={selectedShelfIndex} allShelves={allShelves}/>
-        {shelfData === null? <Loading /> : <CardOutput shelfData={shelfData}/>}
+        <ShelfSearch selectedShelfIndex={selectedShelfIndex} allShelves={allShelves} searchValue={searchValue} setSearchValue={setSearchValue}/>
+        {shelfData === null? <Loading /> : <CardOutput shelfData={shelfData} searchValue={searchValue}/>}
       </div>
     </div>
   )

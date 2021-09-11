@@ -3,19 +3,18 @@ import { ReactComponent as SearchIcon } from '../icons/search_black_24dp.svg'
 
 
 
-const ShelfSearch = ({ selectedShelfIndex, allShelves }) => {
+const ShelfSearch = ({ selectedShelfIndex, allShelves, searchValue, setSearchValue }) => {
   let shelf = allShelves[selectedShelfIndex].name;
 
   const filterBookCards = (e) => {
-
-    
-
+    let val = e.target.value;
+    setSearchValue(val);
   }
 
   return (
     <div className="shelf-search">
       <input type="text" placeholder={`Search in ${shelf}`}
-      onKeyPress={(e) => filterBookCards(e)}/>
+      onChange={(e) => filterBookCards(e)}/>
       <SearchIcon />
     </div>
   )

@@ -20,8 +20,8 @@ const Shelf = ({ name, tag,  _, index, selectedShelfIndex, setSelectedShelfIndex
     setIsEditing(!isEditing)
     // postavi stanje setShelves tako da je ime datog shelfa izmenjeno
     setShelves(shelves.map(shelf => {
-          if(shelf === name){
-            return e.target.value;
+          if(shelf.name === name){
+            shelf.name = e.target.value;
           }
           return shelf;
         }))
