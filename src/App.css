@@ -204,7 +204,8 @@ form h3 {
 
 .selected {
   background-color: var(--dark-font-color-opaque);
-  box-shadow: 0 2px 0 0 var(--dark-font-color);
+  box-shadow: 0 2px 0 0 rgba(238, 67, 89, 0.7);
+  /* border-left: 5px solid var(--nav-color); */
 }
 
 .shelf-icon {
@@ -350,6 +351,7 @@ form h3 {
 
 .book-rating {
   margin-top: auto;
+  height: 1rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -360,6 +362,7 @@ form h3 {
   margin-left: auto;
   font-size: 2rem;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .book-card-options:hover{

@@ -20,7 +20,7 @@ const CreateShelf = ({ userShelves, setUserShelves, allShelves, setAllShelves })
 
   return (
     <div className="create-shelf-component">
-      {!isEditing ? <span onClick={() => setIsEditing(!isEditing)} >&#43;</span> :
+      {!isEditing ? <span onClick={() => setIsEditing(!isEditing)} title="Create a new shelf">&#43;</span> :
       <> 
       <input type="text" className="create-shelf-input" placeholder="Create a new shelf"
       onKeyPress={(e) => createNewShelf(e)}/>

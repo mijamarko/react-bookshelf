@@ -28,7 +28,13 @@ const Shelf = ({ name, tag,  _, index, selectedShelfIndex, setSelectedShelfIndex
   }
 }
 
-  const deleteShelf = () => {
+  const editShelf = (e) => {
+    e.stopPropagation();
+    setIsEditing(!isEditing)
+  }
+
+  const deleteShelf = (e) => {
+    e.stopPropagation();
     //isfiltriraj obrisan shelf iz shelf state-a
     setShelves(shelves.filter(shelf => shelf.name !== name));
     setAllShelves(shelves.filter(shelf => shelf.name !== name));
@@ -45,13 +51,13 @@ const Shelf = ({ name, tag,  _, index, selectedShelfIndex, setSelectedShelfIndex
     {!isEditing ?
      <>
       <span>{name}</span>
-      <EditIcon className="shelf-icon" onClick={() => setIsEditing(!isEditing)} />
-      <DeleteIcon className="shelf-icon" onClick={() => deleteShelf()} />
+      <EditIcon className="shelf-icon" onClick={(e) => editShelf(e)} />
+      <DeleteIcon className="shelf-icon" onClick={(e) => deleteShelf(e)} />
      </>
      :<>
      <input type="text" defaultValue={name} className="shelf-edit-input"
      onKeyPress={(e) => changeShelfName(e)} />
-     <CloseIcon className="shelf-icon" onClick={() => setIsEditing(!isEditing)}/>
+     <CloseIcon className="shelf-icon" onClick={(e) => editShelf(e)}/>
      </>}
       
     </div>

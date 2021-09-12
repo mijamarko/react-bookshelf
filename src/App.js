@@ -6,7 +6,7 @@ import DropdownMenu from './Navigation/DropdownMenu';
 import AppContent from './AppContent'
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
   return (
